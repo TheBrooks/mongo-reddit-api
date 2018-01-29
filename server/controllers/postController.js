@@ -33,6 +33,10 @@ postController.getAll = (req, res) => {
       path: '_creator',
       select: 'username createdAt -_id'
     })
+    .populate({
+      path: '_comments',
+      select: 'text createdAt _creator'
+    })
     .then((posts) => {
       return res.status(200).json({
         success: true,
