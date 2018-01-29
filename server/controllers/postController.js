@@ -35,7 +35,10 @@ postController.getAll = (req, res) => {
     })
     .populate({
       path: '_comments',
-      select: 'text createdAt _creator'
+      select: 'text createdAt _creator',
+      match: {
+        isDeleted: false
+      }
     })
     .then((posts) => {
       return res.status(200).json({
