@@ -14,6 +14,14 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minLength: [8, 'Password must be 8 characters or more']
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false
   }
 });
 
